@@ -1,21 +1,16 @@
 package gameoflife;
 
-import static java.util.Arrays.asList;
+import org.junit.Before;
+import org.junit.Test;
+
+import java.util.HashSet;
+import java.util.Set;
+
 import static java.util.Collections.emptySet;
-import static org.hamcrest.Matchers.contains;
-import static org.mockito.Matchers.argThat;
+import static java.util.Collections.singletonList;
 import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
-
-import org.hamcrest.Matchers;
-import org.junit.Before;
-import org.junit.Test;
-import org.mockito.Mockito;
-
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
 
 public class GameOfLifeTest {
 
@@ -41,7 +36,7 @@ public class GameOfLifeTest {
 
         world.exportLivingCells(collector);
 
-        Set<Cell> expected = new HashSet<>(asList(new Cell(1, 1)));
+        Set<Cell> expected = new HashSet<>(singletonList(new Cell(1, 1)));
         verify(collector).collect(eq(expected));
     }
 
@@ -76,7 +71,7 @@ public class GameOfLifeTest {
         world.evolve();
 
         world.exportLivingCells(collector);
-        Set<Cell> expected = new HashSet<>(asList(new Cell(1, 1)));
+        Set<Cell> expected = new HashSet<>(singletonList(new Cell(1, 1)));
         verify(collector).collect(eq(expected));
     }
 

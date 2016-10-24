@@ -26,7 +26,7 @@ public class World {
     private void evolve(CellCollector cellCollector) {
         Set<Cell> newLivingCells = new HashSet<>();
         for (Cell livingCell : livingCells) {
-            livingCell.exportNeighbours()
+            livingCell.exportNeighbours(cellCollector);
         }
         cellCollector.collect(newLivingCells);
     }

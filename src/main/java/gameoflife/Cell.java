@@ -10,10 +10,23 @@ public class Cell {
         this.y = y;
     }
 
+    public void exportNeighbours(CellCollector collector) {
+
+    }
+
+    @Override
+    public String toString() {
+        return String.format("(%d, %d)", x, y);
+    }
+
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Cell cell = (Cell) o;
         return x == cell.x && y == cell.y;
 
@@ -21,11 +34,8 @@ public class Cell {
 
     @Override
     public int hashCode() {
-        return 31 * x + y;
-    }
-
-    @Override
-    public String toString() {
-        return String.format("(%d, %d)", x, y);
+        int result = x;
+        result = 31 * result + y;
+        return result;
     }
 }
